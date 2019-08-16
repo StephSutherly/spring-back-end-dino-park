@@ -1,5 +1,6 @@
 package com.codeclan.dinopark.DinoPark;
 import com.codeclan.dinopark.DinoPark.models.*;
+import com.codeclan.dinopark.DinoPark.repositories.DinosaurRepository;
 import org.junit.Before;
 import com.codeclan.dinopark.DinoPark.models.Paddock;
 import com.codeclan.dinopark.DinoPark.repositories.PaddockRepository;
@@ -16,14 +17,21 @@ public class DinoParkApplicationTests {
 
 	@Autowired
 	PaddockRepository paddockRepository;
+
+	@Autowired
+	DinosaurRepository dinosaurRepository;
 	
 	Herbivore herbivore;
 	Carnivore carnivore;
+	Paddock paddockHerbi;
+	Paddock paddockCarni;
 
 	@Before
 	public void setUp() {
-		herbivore = new Herbivore("Monty", true,100, HerbivoreType.ATOPODENTATUS);
-		carnivore = new Carnivore("Toothy", false,50, CarnivoreType.SPINOSAURUS);
+		paddockHerbi = new Paddock(true);
+		paddockCarni = new Paddock(false);
+		herbivore = new Herbivore("Monty", true,100, HerbivoreType.ATOPODENTATUS, paddockHerbi);
+		carnivore = new Carnivore("Toothy", false,50, CarnivoreType.SPINOSAURUS, paddockHerbi);
 	}
 
 	@Test
@@ -75,6 +83,18 @@ public class DinoParkApplicationTests {
 	@Test
 	public void carnivoreHasType() {
 		assertEquals(CarnivoreType.SPINOSAURUS, carnivore.getType());
+	}
+
+	@Test
+	public void dinoHasPaddock() {
+		assertEquals(paddockHerbi, herbivore.getPaddock());
+	}
+
+	@Test
+	public void canChangePaddock() {
+		assertEquals(paddockHerbi, carnivore.getPaddock());
+		carnivore.setPaddock(paddockCarni);
+		assertEquals(paddockCarni, carnivore.getPaddock());
 	}
 
 }
