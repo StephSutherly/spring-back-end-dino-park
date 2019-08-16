@@ -1,10 +1,8 @@
 package com.codeclan.dinopark.DinoPark;
 
-import com.codeclan.dinopark.DinoPark.models.Herbivore;
-import com.codeclan.dinopark.DinoPark.models.HerbivoreType;
+import com.codeclan.dinopark.DinoPark.models.*;
 import org.junit.Before;
 
-import com.codeclan.dinopark.DinoPark.models.Paddock;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,10 +15,12 @@ import static org.junit.Assert.assertEquals;
 public class DinoParkApplicationTests {
 
 	Herbivore herbivore;
+	Carnivore carnivore;
 
 	@Before
 	public void setUp() {
 		herbivore = new Herbivore("Monty", true,100, HerbivoreType.ATOPODENTATUS);
+		carnivore = new Carnivore("Toothy", false,50, CarnivoreType.SPINOSAURUS);
 	}
 
 	@Test
@@ -51,6 +51,26 @@ public class DinoParkApplicationTests {
 	public void canCreatePaddock() {
 		Paddock paddock = new Paddock(true);
 		assertEquals(true, paddock.isHerbivore());
+	}
+
+	@Test
+	public void carnivoreHasName() {
+		assertEquals("Toothy", carnivore.getName());
+	}
+
+	@Test
+	public void carnivoreIsNotHerbivore() {
+		assertEquals(false, carnivore.isHerbivore());
+	}
+
+	@Test
+	public void carnivoreHasFullnessLevel() {
+		assertEquals(50, carnivore.getFullnessLevel());
+	}
+
+	@Test
+	public void carnivoreHasType() {
+		assertEquals(CarnivoreType.SPINOSAURUS, carnivore.getType());
 	}
 
 }
