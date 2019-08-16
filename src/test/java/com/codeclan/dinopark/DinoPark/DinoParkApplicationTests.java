@@ -2,7 +2,7 @@ package com.codeclan.dinopark.DinoPark;
 import com.codeclan.dinopark.DinoPark.models.*;
 import org.junit.Before;
 import com.codeclan.dinopark.DinoPark.models.Paddock;
-import com.codeclan.dinopark.DinoPark.repositories.PaddockRepository;
+import com.codeclan.dinopark.DinoPark.repositories.paddock_repository.PaddockRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class DinoParkApplicationTests {
 	
 	Herbivore herbivore;
 	Carnivore carnivore;
-	Paddock paddock = new Paddock(true);
+	Paddock paddock;
 
 	@Before
 	public void setUp() {
