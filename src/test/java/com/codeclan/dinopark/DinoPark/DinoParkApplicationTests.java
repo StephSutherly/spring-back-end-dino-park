@@ -3,6 +3,8 @@ package com.codeclan.dinopark.DinoPark;
 import com.codeclan.dinopark.DinoPark.models.Herbivore;
 import com.codeclan.dinopark.DinoPark.models.HerbivoreType;
 import org.junit.Before;
+
+import com.codeclan.dinopark.DinoPark.models.Paddock;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -43,6 +45,12 @@ public class DinoParkApplicationTests {
 	@Test
 	public void hasType() {
 		assertEquals(HerbivoreType.ATOPODENTATUS, herbivore.getType());
+	}
+
+	@Test
+	public void canCreatePaddock() {
+		Paddock paddock = new Paddock(true);
+		assertEquals(true, paddock.isHerbivore());
 	}
 
 }
