@@ -20,13 +20,16 @@ public abstract class Dinosaur {
     @Column(name="fullness_level")
     private int fullnessLevel;
 
-    //    private Long paddockId;
+    @ManyToOne
+    @JoinColumn(name = "paddock_id", nullable = false)
+    private Paddock paddock;
 
 
-    public Dinosaur(String name, boolean isHerbivore, int fullnessLevel) {
+    public Dinosaur(String name, boolean isHerbivore, int fullnessLevel, Paddock paddock) {
         this.name = name;
         this.isHerbivore = isHerbivore;
         this.fullnessLevel = fullnessLevel;
+        this.paddock = paddock;
     }
 
     public Dinosaur() {
@@ -63,5 +66,13 @@ public abstract class Dinosaur {
 
     public void setFullnessLevel(int fullnessLevel) {
         this.fullnessLevel = fullnessLevel;
+    }
+
+    public Paddock getPaddock() {
+        return paddock;
+    }
+
+    public void setPaddock(Paddock paddock) {
+        this.paddock = paddock;
     }
 }
