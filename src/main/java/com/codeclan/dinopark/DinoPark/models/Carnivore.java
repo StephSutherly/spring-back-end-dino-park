@@ -4,8 +4,8 @@ public class Carnivore extends Dinosaur {
 
     private CarnivoreType type;
 
-    public Carnivore(String name, boolean isCarnivore, int fullnessLevel, CarnivoreType type) {
-        super(name, isCarnivore, fullnessLevel);
+    public Carnivore(String name, boolean isHerbivore, int fullnessLevel, CarnivoreType type) {
+        super(name, isHerbivore, fullnessLevel);
         this.type = type;
     }
 
