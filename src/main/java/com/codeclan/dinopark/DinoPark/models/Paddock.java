@@ -1,6 +1,7 @@
 package com.codeclan.dinopark.DinoPark.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="paddocks")
@@ -12,6 +13,9 @@ public class Paddock {
 
   @Column(name="is_herbivore")
   private boolean isHerbivore;
+
+//  @OneToMany(mappedBy = "paddocks", fetch = FetchType.LAZY)
+//  private List<Dinosaur> dinosaurs;
 
   public Paddock(boolean isHerbivore) {
     this.isHerbivore = isHerbivore;
