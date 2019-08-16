@@ -3,6 +3,8 @@ package com.codeclan.dinopark.DinoPark.models;
 import javax.persistence.*;
 
 @Entity
+@Inheritance
+@DiscriminatorColumn(name="dino_type")
 @Table(name="dinosaurs")
 
 public abstract class Dinosaur {

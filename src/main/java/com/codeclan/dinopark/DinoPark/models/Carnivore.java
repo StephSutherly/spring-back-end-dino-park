@@ -1,5 +1,10 @@
 package com.codeclan.dinopark.DinoPark.models;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Carnivore")
 public class Carnivore extends Dinosaur {
 
     private CarnivoreType type;
