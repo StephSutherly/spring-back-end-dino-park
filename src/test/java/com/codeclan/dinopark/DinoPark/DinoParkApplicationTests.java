@@ -35,4 +35,9 @@ public class DinoParkApplicationTests {
 		assertEquals(true, herbivore.isHerbivore());
 	}
 
+	@Test
+	public void hasFullnessLevel() {
+		assertEquals(100, herbivore.getFullnessLevel());
+	}
+
 }
