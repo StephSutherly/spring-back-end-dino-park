@@ -40,4 +40,9 @@ public class DinoParkApplicationTests {
 		assertEquals(100, herbivore.getFullnessLevel());
 	}
 
+	@Test
+	public void hasType() {
+		assertEquals(HerbivoreType.ATOPODENTATUS, herbivore.getType());
+	}
+
 }
