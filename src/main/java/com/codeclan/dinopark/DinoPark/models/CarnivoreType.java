@@ -8,5 +8,5 @@ public enum CarnivoreType {
     PTERODACTYL,
     GIGANOTOSAURUS,
     MOSOSAURUS
-    
+
 }

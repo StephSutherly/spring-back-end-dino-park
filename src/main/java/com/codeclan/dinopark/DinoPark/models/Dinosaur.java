@@ -23,8 +23,7 @@ public abstract class Dinosaur {
     //    private Long paddockId;
 
 
-    public Dinosaur(Long id, String name, boolean isHerbivore, int fullnessLevel) {
-        this.id = id;
+    public Dinosaur(String name, boolean isHerbivore, int fullnessLevel) {
         this.name = name;
         this.isHerbivore = isHerbivore;
         this.fullnessLevel = fullnessLevel;
