@@ -29,4 +29,10 @@ public class DinoParkApplicationTests {
 	public void hasName() {
 		assertEquals("Monty", herbivore.getName());
 	}
+
+	@Test
+	public void isHerbivore() {
+		assertEquals(true, herbivore.isHerbivore());
+	}
+
 }
