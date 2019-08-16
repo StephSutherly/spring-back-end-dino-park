@@ -19,11 +19,13 @@ public class DinoParkApplicationTests {
 	
 	Herbivore herbivore;
 	Carnivore carnivore;
+	Paddock paddock = new Paddock(true);
 
 	@Before
 	public void setUp() {
-		herbivore = new Herbivore("Monty", true,100, HerbivoreType.ATOPODENTATUS);
-		carnivore = new Carnivore("Toothy", false,50, CarnivoreType.SPINOSAURUS);
+		paddock = new Paddock(true);
+		herbivore = new Herbivore("Monty", true,100, HerbivoreType.ATOPODENTATUS, paddock);
+		carnivore = new Carnivore("Toothy", false,50, CarnivoreType.SPINOSAURUS, paddock);
 	}
 
 	@Test
@@ -52,7 +54,6 @@ public class DinoParkApplicationTests {
 
 	@Test
 	public void canCreatePaddock() {
-		Paddock paddock = new Paddock(true);
 		paddockRepository.save(paddock);
 		assertEquals(new Long(1), paddock.getId());
 	}
