@@ -14,6 +14,10 @@ public class Carnivore extends Dinosaur {
         this.type = type;
     }
 
+    public Carnivore() {
+        
+    }
+
     public CarnivoreType getType() {
         return type;
     }
