@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/paddocks")
+@RequestMapping(value="/paddocks")
 public class PaddockController {
 
   @Autowired
