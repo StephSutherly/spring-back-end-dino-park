@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance
-@DiscriminatorColumn(name="dino_type")
+@DiscriminatorColumn(name="dino_diet")
 @Table(name="dinosaurs")
 
 public abstract class Dinosaur {
@@ -23,8 +23,9 @@ public abstract class Dinosaur {
     private int fullnessLevel;
 
     @ManyToOne
-    @JoinColumn(name="paddock_id", nullable=false)
+    @JoinColumn(name = "paddock_id", nullable = false)
     private Paddock paddock;
+
 
     public Dinosaur(String name, boolean isHerbivore, int fullnessLevel, Paddock paddock) {
         this.name = name;
