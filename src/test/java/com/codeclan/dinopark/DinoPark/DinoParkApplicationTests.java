@@ -1,6 +1,6 @@
 package com.codeclan.dinopark.DinoPark;
 import com.codeclan.dinopark.DinoPark.models.*;
-import com.codeclan.dinopark.DinoPark.repositories.DinosaurRepository;
+import com.codeclan.dinopark.DinoPark.repositories.dinosaur_repository.DinosaurRepository;
 import org.junit.Before;
 import com.codeclan.dinopark.DinoPark.models.Paddock;
 import com.codeclan.dinopark.DinoPark.repositories.PaddockRepository;
@@ -9,6 +9,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
@@ -95,6 +98,12 @@ public class DinoParkApplicationTests {
 		assertEquals(paddockHerbi, carnivore.getPaddock());
 		carnivore.setPaddock(paddockCarni);
 		assertEquals(paddockCarni, carnivore.getPaddock());
+	}
+
+	@Test
+	public void canFindDinosaurByPaddockId() {
+		List<Dinosaur> found = dinosaurRepository.findDinosaurByPaddockId(1L);
+		assertEquals(2, found.size());
 	}
 
 }

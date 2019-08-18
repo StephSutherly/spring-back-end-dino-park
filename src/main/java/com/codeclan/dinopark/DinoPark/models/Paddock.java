@@ -14,8 +14,8 @@ public class Paddock {
   @Column(name="is_herbivore")
   private boolean isHerbivore;
 
-//  @OneToMany(mappedBy = "paddocks", fetch = FetchType.LAZY)
-//  private List<Dinosaur> dinosaurs;
+  @OneToMany(mappedBy = "paddocks", fetch = FetchType.LAZY)
+  private List<Dinosaur> dinosaurs;
 
   public Paddock(boolean isHerbivore) {
     this.isHerbivore = isHerbivore;
