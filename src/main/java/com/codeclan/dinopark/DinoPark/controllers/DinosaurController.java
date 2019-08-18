@@ -22,7 +22,7 @@ public class DinosaurController {
         return dinosaurRepository.findAll();
     }
 
-    @GetMapping(value = "/paddock/{paddock}")
+    @GetMapping(value = "/paddock/{id}")
     public List<Dinosaur> findDinosaurByPaddock(@PathVariable Long id) {
      return dinosaurRepository.findDinosaurByPaddockId(id);
     }
