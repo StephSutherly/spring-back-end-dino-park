@@ -1,9 +1,13 @@
 package com.codeclan.dinopark.DinoPark;
 import com.codeclan.dinopark.DinoPark.models.*;
+<<<<<<< HEAD
 import com.codeclan.dinopark.DinoPark.repositories.dinosaur_repository.DinosaurRepository;
+=======
+import com.codeclan.dinopark.DinoPark.repositories.DinosaurRepository;
+>>>>>>> develop
 import org.junit.Before;
 import com.codeclan.dinopark.DinoPark.models.Paddock;
-import com.codeclan.dinopark.DinoPark.repositories.PaddockRepository;
+import com.codeclan.dinopark.DinoPark.repositories.paddock_repository.PaddockRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +30,7 @@ public class DinoParkApplicationTests {
 	
 	Herbivore herbivore;
 	Carnivore carnivore;
+<<<<<<< HEAD
 	Paddock paddockHerbi;
 	Paddock paddockCarni;
 
@@ -35,6 +40,18 @@ public class DinoParkApplicationTests {
 		paddockCarni = new Paddock(false);
 		herbivore = new Herbivore("Monty", true,100, HerbivoreType.ATOPODENTATUS, paddockHerbi);
 		carnivore = new Carnivore("Toothy", false,50, CarnivoreType.SPINOSAURUS, paddockHerbi);
+=======
+	Paddock paddock;
+
+	@Before
+	public void setUp() {
+		paddock = new Paddock(true);
+		paddockRepository.save(paddock);
+		herbivore = new Herbivore("Monty", true,100, HerbivoreType.ATOPODENTATUS, paddock);
+		carnivore = new Carnivore("Toothy", false,50, CarnivoreType.SPINOSAURUS, paddock);
+		dinosaurRepository.save(herbivore);
+		dinosaurRepository.save(carnivore);
+>>>>>>> develop
 	}
 
 	@Test
@@ -63,9 +80,7 @@ public class DinoParkApplicationTests {
 
 	@Test
 	public void canCreatePaddock() {
-		Paddock paddock = new Paddock(true);
-		paddockRepository.save(paddock);
-		assertEquals(new Long(1), paddock.getId());
+		assertEquals(new Long(6), paddock.getId());
 	}
 
 	@Test
@@ -89,6 +104,7 @@ public class DinoParkApplicationTests {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void dinoHasPaddock() {
 		assertEquals(paddockHerbi, herbivore.getPaddock());
 	}
@@ -106,4 +122,10 @@ public class DinoParkApplicationTests {
 		assertEquals(2, found.size());
 	}
 
+=======
+	public void canFindPaddocksByDinosaurName() {
+		List<Paddock> found = paddockRepository.findPaddocksWithDinosaursNamed("Monty");
+		assertEquals(new Long(1), found.get(0).getId());
+	}
+>>>>>>> develop
 }
