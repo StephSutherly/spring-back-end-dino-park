@@ -1,5 +1,7 @@
 package com.codeclan.dinopark.DinoPark.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ public class Paddock {
   @Column(name="is_herbivore")
   private boolean isHerbivore;
 
+  @JsonIgnoreProperties("paddock")
   @OneToMany(mappedBy = "paddock", fetch = FetchType.LAZY)
   private List<Dinosaur> dinosaurs;
 

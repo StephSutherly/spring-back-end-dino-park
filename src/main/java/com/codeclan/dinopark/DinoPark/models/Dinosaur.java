@@ -1,5 +1,7 @@
 package com.codeclan.dinopark.DinoPark.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +24,7 @@ public abstract class Dinosaur {
     @Column(name="fullness_level")
     private int fullnessLevel;
 
+    @JsonIgnoreProperties("dinosaurs")
     @ManyToOne
     @JoinColumn(name = "paddock_id", nullable = false)
     private Paddock paddock;
