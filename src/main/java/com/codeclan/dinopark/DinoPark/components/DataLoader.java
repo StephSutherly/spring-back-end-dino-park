@@ -1,7 +1,7 @@
 package com.codeclan.dinopark.DinoPark.components;
 
 import com.codeclan.dinopark.DinoPark.models.*;
-import com.codeclan.dinopark.DinoPark.repositories.DinosaurRepository;
+import com.codeclan.dinopark.DinoPark.repositories.dinosaur_repository.DinosaurRepository;
 import com.codeclan.dinopark.DinoPark.repositories.paddock_repository.PaddockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
