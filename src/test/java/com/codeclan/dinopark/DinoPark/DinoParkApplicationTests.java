@@ -1,4 +1,5 @@
 package com.codeclan.dinopark.DinoPark;
+
 import com.codeclan.dinopark.DinoPark.models.*;
 import com.codeclan.dinopark.DinoPark.repositories.dinosaur_repository.DinosaurRepository;
 import org.junit.Before;
@@ -78,7 +79,7 @@ public class DinoParkApplicationTests {
 
 	@Test
 	public void canCreatePaddock() {
-		assertEquals(new Long(19), paddock.getId());
+		assertEquals(new Long(22), paddock.getId());
 	}
 
 	@Test
@@ -99,6 +100,16 @@ public class DinoParkApplicationTests {
 	@Test
 	public void carnivoreHasType() {
 		assertEquals(CarnivoreType.SPINOSAURUS, carnivore.getType());
+	}
+
+	@Test
+	public void canFindAllPaddocks() {
+		assertEquals(21, paddockRepository.findAll().size());
+	}
+
+	@Test
+	public void canFindPaddockByID() {
+		assertEquals(true, paddockRepository.findById(1L).get().isHerbivore());
 	}
 
 	@Test
