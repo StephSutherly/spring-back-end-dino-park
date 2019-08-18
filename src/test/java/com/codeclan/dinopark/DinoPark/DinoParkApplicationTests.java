@@ -34,7 +34,9 @@ public class DinoParkApplicationTests {
 		paddockRepository.save(paddock);
 		herbivore = new Herbivore("Monty", true,100, HerbivoreType.ATOPODENTATUS, paddock);
 		carnivore = new Carnivore("Toothy", false,50, CarnivoreType.SPINOSAURUS, paddock);
+		paddock.addDinosaur(herbivore);
 		dinosaurRepository.save(herbivore);
+		paddock.addDinosaur(carnivore);
 		dinosaurRepository.save(carnivore);
 	}
 

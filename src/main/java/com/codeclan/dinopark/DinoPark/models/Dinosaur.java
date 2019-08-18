@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance
-@DiscriminatorColumn(name="dino_type")
+@DiscriminatorColumn(name="dino_diet")
 @Table(name="dinosaurs")
 
 public abstract class Dinosaur {

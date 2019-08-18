@@ -50,4 +50,8 @@ public class Paddock {
   public void setDinosaurs(List<Dinosaur> dinosaurs) {
     this.dinosaurs = dinosaurs;
   }
+
+  public void addDinosaur(Dinosaur dinosaur) {
+    this.dinosaurs.add(dinosaur);
+  }
 }

@@ -17,6 +17,11 @@ public class PaddockController {
   @Autowired
   PaddockRepository paddockRepository;
 
+  @GetMapping
+  public List<Paddock> findAllPaddocks() {
+    return paddockRepository.findAll();
+  }
+
   @GetMapping(value="/dinosaurs/named/{name}")
   public List<Paddock> findPaddocksWithDinosaursNamed(@PathVariable String name) {
     return paddockRepository.findPaddocksWithDinosaursNamed(name);
