@@ -24,7 +24,7 @@ public class DinosaurRepositoryImpl {
 
         try {
             Criteria criteria = session.createCriteria(Dinosaur.class);
-            criteria.createAlias("paddocks", "paddocksAlias");
+            criteria.createAlias("paddock", "paddockAlias");
             criteria.add(Restrictions.eq("paddockAlias.id", id));
 
             result = criteria.list();
