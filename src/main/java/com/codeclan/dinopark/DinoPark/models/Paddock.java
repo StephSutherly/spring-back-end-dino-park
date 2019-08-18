@@ -12,15 +12,17 @@ public class Paddock {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column
+  private String name;
+
   @Column(name="is_herbivore")
   private boolean isHerbivore;
 
-
   @OneToMany(mappedBy = "paddock", fetch = FetchType.LAZY)
-
   private List<Dinosaur> dinosaurs;
 
-  public Paddock(boolean isHerbivore) {
+  public Paddock(String name, boolean isHerbivore) {
+    this.name = name;
     this.isHerbivore = isHerbivore;
     this.dinosaurs = new ArrayList<>();
   }
@@ -35,6 +37,14 @@ public class Paddock {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public boolean isHerbivore() {

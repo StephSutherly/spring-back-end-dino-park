@@ -34,13 +34,13 @@ public class DinoParkApplicationTests {
 
 	@Before
 	public void setUp() {
-		paddock = new Paddock(true);
+		paddock = new Paddock("Hammond",true);
 		paddockRepository.save(paddock);
 
-		paddockHerbi = new Paddock(true);
+		paddockHerbi = new Paddock("Grant",true);
 		paddockRepository.save(paddockHerbi);
 
-		paddockCarni = new Paddock(false);
+		paddockCarni = new Paddock("Muldoon",false);
 		paddockRepository.save(paddockCarni);
 
 		herbivore = new Herbivore("Monty", true,100, HerbivoreType.ATOPODENTATUS, paddockHerbi);
@@ -79,8 +79,13 @@ public class DinoParkApplicationTests {
 
 	@Test
 	public void canCreatePaddock() {
-		assertEquals(new Long(22), paddock.getId());
+		assertEquals(new Long(28), paddock.getId());
 	}
+
+	@Test
+  public void canGetPaddockName() {
+	  assertEquals("Muldoon", paddockCarni.getName());
+  }
 
 	@Test
 	public void carnivoreHasName() {
@@ -104,7 +109,7 @@ public class DinoParkApplicationTests {
 
 	@Test
 	public void canFindAllPaddocks() {
-		assertEquals(21, paddockRepository.findAll().size());
+		assertEquals(27, paddockRepository.findAll().size());
 	}
 
 	@Test
@@ -126,7 +131,7 @@ public class DinoParkApplicationTests {
 
 	@Test
 	public void canFindDinosaurByPaddockId() {
-		List<Dinosaur> found = dinosaurRepository.findDinosaurByPaddockId(2L);
+		List<Dinosaur> found = dinosaurRepository.findDinosaurByPaddockId(5L);
 		assertEquals(2, found.size());
 	}
 

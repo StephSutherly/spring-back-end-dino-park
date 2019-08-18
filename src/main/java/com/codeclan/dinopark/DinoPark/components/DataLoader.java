@@ -24,13 +24,13 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
 
-        Paddock paddockGreen = new Paddock(true);
+        Paddock paddockGreen = new Paddock("Hammond", true);
         paddockRepository.save(paddockGreen);
 
-        Paddock paddockBlue = new Paddock(true);
+        Paddock paddockBlue = new Paddock("Grant", true);
         paddockRepository.save(paddockBlue);
 
-        Paddock paddockRed = new Paddock(false);
+        Paddock paddockRed = new Paddock("Muldoon", false);
         paddockRepository.save(paddockRed);
 
         Herbivore herbivore1 = new Herbivore("Archie", true,100, HerbivoreType.ATOPODENTATUS, paddockGreen);
