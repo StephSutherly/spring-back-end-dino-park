@@ -23,7 +23,7 @@ public class PaddockController {
     return paddockRepository.findAll();
   }
 
-  @GetMapping("/{id}")
+  @GetMapping(value="/{id}")
   public Optional<Paddock> findPaddock(@PathVariable Long id) {
     return paddockRepository.findById(id);
   }

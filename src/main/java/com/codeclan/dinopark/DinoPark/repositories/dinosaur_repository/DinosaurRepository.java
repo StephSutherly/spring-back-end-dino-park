@@ -9,5 +9,4 @@ import java.util.List;
 @RepositoryRestResource
 public interface DinosaurRepository extends JpaRepository<Dinosaur, Long>, DinosaurRepositoryCustom {
 
-//    List<Dinosaur> findDinosaurByPaddockId(Long id);
 }
