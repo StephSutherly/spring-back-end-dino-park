@@ -135,9 +135,10 @@ public class DinoParkApplicationTests {
 		assertEquals(2, found.size());
 	}
 
+	@Test
 	public void canFindPaddocksByDinosaurName() {
 		List<Paddock> found = paddockRepository.findPaddocksWithDinosaursNamed("Monty");
-		assertEquals(new Long(1), found.get(0).getId());
+		assertEquals(new Long(5), found.get(0).getId());
 	}
 
 }
