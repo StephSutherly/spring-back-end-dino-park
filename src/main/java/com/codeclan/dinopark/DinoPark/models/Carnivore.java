@@ -1,12 +1,13 @@
 package com.codeclan.dinopark.DinoPark.models;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 @DiscriminatorValue("Carnivore")
 public class Carnivore extends Dinosaur {
 
+    @Column(name="type")
+    @Enumerated(value = EnumType.STRING)
     private CarnivoreType type;
 
     public Carnivore(String name, boolean isHerbivore, int fullnessLevel, CarnivoreType type, Paddock paddock) {
