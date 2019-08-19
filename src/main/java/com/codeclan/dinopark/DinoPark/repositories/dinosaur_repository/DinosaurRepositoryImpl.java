@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 
 import java.util.List;
 
-public class DinosaurRepositoryImpl {
+public class DinosaurRepositoryImpl implements DinosaurRepositoryCustom {
     @Autowired
     EntityManager entityManager;
 
