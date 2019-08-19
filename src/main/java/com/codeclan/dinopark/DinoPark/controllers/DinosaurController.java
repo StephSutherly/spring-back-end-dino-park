@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/dinosaurs")
@@ -22,9 +23,14 @@ public class DinosaurController {
         return dinosaurRepository.findAll();
     }
 
-    @GetMapping(value = "/paddock/{paddock}")
+    @GetMapping("/{id}")
+    public Optional<Dinosaur> findDinosaur(@PathVariable Long id) {
+        return dinosaurRepository.findById(id);
+    }
+
+    @GetMapping(value = "/paddock/{id}")
     public List<Dinosaur> findDinosaurByPaddock(@PathVariable Long id) {
-     return dinosaurRepository.findDinosaurByPaddockId(id);
+        return dinosaurRepository.findDinosaurByPaddockId(id);
     }
 
 }
