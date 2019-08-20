@@ -36,4 +36,9 @@ public class HerbivoreController {
       herbivoreRepository.save(herbivore);
     }
   }
+
+  @DeleteMapping(value="/{id}")
+  public void deleteHerbivore(@PathVariable Long id) {
+    herbivoreRepository.delete(findHerbivore(id).get());
+  }
 }
