@@ -17,7 +17,6 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     PaddockRepository paddockRepository;
 
-
     public DataLoader() {
 
     }
