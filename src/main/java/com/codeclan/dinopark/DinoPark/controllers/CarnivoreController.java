@@ -21,12 +21,12 @@ public class CarnivoreController {
   }
 
   @PostMapping
-  public void addNewCarnivore(Carnivore carnivore) {
+  public void addNewCarnivore(@RequestBody Carnivore carnivore) {
     carnivoreRepository.save(carnivore);
   }
 
   @GetMapping(value="/{id}")
-  public Optional<Carnivore> findDinosaur(@PathVariable Long id) {
+  public Optional<Carnivore> findCarnivore(@PathVariable Long id) {
     return carnivoreRepository.findById(id);
   }
 }

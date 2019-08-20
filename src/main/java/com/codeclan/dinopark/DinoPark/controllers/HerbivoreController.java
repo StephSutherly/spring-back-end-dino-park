@@ -16,17 +16,17 @@ public class HerbivoreController {
   HerbivoreRepository herbivoreRepository;
 
   @GetMapping
-  public List<Herbivore> getAllDinosaurs() {
+  public List<Herbivore> getAllHerbivores() {
     return herbivoreRepository.findAll();
   }
 
   @PostMapping
-  public void addNewDinosaur(@RequestBody Herbivore herbivore) {
+  public void addNewHerbivore(@RequestBody Herbivore herbivore) {
     herbivoreRepository.save(herbivore);
   }
 
   @GetMapping(value="/{id}")
-  public Optional<Herbivore> findDinosaur(@PathVariable Long id) {
+  public Optional<Herbivore> findHerbivore(@PathVariable Long id) {
     return herbivoreRepository.findById(id);
   }
 }
