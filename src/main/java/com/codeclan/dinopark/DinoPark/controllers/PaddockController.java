@@ -30,6 +30,13 @@ public class PaddockController {
     return paddockRepository.findById(id);
   }
 
+  @PutMapping(value="/{id}")
+  public void updatePaddock(@PathVariable Long id, @RequestBody Paddock paddock) {
+    if(findPaddock(id).get() != null) {
+      paddockRepository.save(paddock);
+    }
+  }
+
   @GetMapping(value="/dinosaurs/named/{name}")
   public List<Paddock> findPaddocksWithDinosaursNamed(@PathVariable String name) {
     return paddockRepository.findPaddocksWithDinosaursNamed(name);
