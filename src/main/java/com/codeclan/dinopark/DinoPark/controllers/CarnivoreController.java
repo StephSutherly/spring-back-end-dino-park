@@ -29,4 +29,11 @@ public class CarnivoreController {
   public Optional<Carnivore> findCarnivore(@PathVariable Long id) {
     return carnivoreRepository.findById(id);
   }
+
+  @PutMapping(value="/{id}")
+  public void updateCarnivore(@PathVariable Long id, @RequestBody Carnivore carnivore) {
+    if(findCarnivore(id).get() != null) {
+      carnivoreRepository.save(carnivore);
+    }
+  }
 }
