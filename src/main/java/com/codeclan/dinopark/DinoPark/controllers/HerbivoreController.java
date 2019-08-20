@@ -29,4 +29,11 @@ public class HerbivoreController {
   public Optional<Herbivore> findHerbivore(@PathVariable Long id) {
     return herbivoreRepository.findById(id);
   }
+
+  @PutMapping(value="/{id}")
+  public void updateHerbivore(@PathVariable Long id, @RequestBody Herbivore herbivore) {
+    if(findHerbivore(id).get() != null) {
+      herbivoreRepository.save(herbivore);
+    }
+  }
 }
