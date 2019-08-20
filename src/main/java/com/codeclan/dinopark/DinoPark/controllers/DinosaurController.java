@@ -20,6 +20,11 @@ public class DinosaurController {
         return dinosaurRepository.findAll();
     }
 
+    @PostMapping
+    public void addNewDinosaur(@RequestBody Dinosaur dinosaur) {
+        dinosaurRepository.save(dinosaur);
+    }
+
     @GetMapping(value="/{id}")
     public Optional<Dinosaur> findDinosaur(@PathVariable Long id) {
         return dinosaurRepository.findById(id);
