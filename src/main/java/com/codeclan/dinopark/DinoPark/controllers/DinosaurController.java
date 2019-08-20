@@ -39,5 +39,8 @@ public class DinosaurController {
         }
     }
 
-
+    @DeleteMapping(value="/{id}")
+    public void deleteDinosaur(@PathVariable Long id) {
+        dinosaurRepository.delete(findDinosaur(id).get());
+    }
 }
