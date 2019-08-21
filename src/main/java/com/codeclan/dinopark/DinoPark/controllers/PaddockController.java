@@ -43,7 +43,12 @@ public class PaddockController {
   }
 
   @GetMapping(value="/herbivores")
-  public List<Paddock> findPaddocksByIsHerbivores() {
+  public List<Paddock> findPaddocksByIsHerbivoresTrue() {
     return paddockRepository.findPaddocksByIsHerbivore(true);
+  }
+
+  @GetMapping(value="/carnivores")
+  public List<Paddock> findPaddocksByIsHerbivoresFalse() {
+    return paddockRepository.findPaddocksByIsHerbivore(false);
   }
 }

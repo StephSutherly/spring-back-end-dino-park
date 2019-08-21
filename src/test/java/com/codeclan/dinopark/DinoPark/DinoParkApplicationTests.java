@@ -78,7 +78,7 @@ public class DinoParkApplicationTests {
 
 	@Test
 	public void canCreatePaddock() {
-		assertEquals(new Long(31), paddock.getId());
+		assertEquals(new Long(34), paddock.getId());
 	}
 
 	@Test
@@ -108,7 +108,7 @@ public class DinoParkApplicationTests {
 
 	@Test
 	public void canFindAllPaddocks() {
-		assertEquals(30, paddockRepository.findAll().size());
+		assertEquals(33, paddockRepository.findAll().size());
 	}
 
 	@Test
@@ -131,19 +131,19 @@ public class DinoParkApplicationTests {
 	@Test
 	public void canFindDinosaurByPaddockId() {
 		List<Dinosaur> found = dinosaurRepository.findDinosaurByPaddockId(5L);
-		assertEquals(2, found.size());
+		assertEquals(1, found.size());
 	}
 
 	@Test
 	public void canFindPaddocksByDinosaurName() {
 		List<Paddock> found = paddockRepository.findPaddocksWithDinosaursNamed("Monty");
-		assertEquals(new Long(5), found.get(0).getId());
+		assertEquals(new Long(8), found.get(0).getId());
 	}
 
 	@Test
 	public void canFindHerbivorePaddocks() {
 		List<Paddock> found = paddockRepository.findPaddocksByIsHerbivore(true);
-		assertEquals(4, found.size());
+		assertEquals(5, found.size());
 	}
 
 }
