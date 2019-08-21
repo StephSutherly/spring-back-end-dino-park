@@ -14,8 +14,7 @@ public class Paddock {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
-  @NotBlank
+  
   @Column
   private String name;
 

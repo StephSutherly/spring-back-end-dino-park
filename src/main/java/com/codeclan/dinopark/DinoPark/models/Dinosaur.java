@@ -3,7 +3,6 @@ package com.codeclan.dinopark.DinoPark.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Inheritance
@@ -16,14 +15,12 @@ public abstract class Dinosaur {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     @Column(name="name")
     private String name;
 
     @Column(name="is_herbivore")
     private boolean isHerbivore;
 
-    @NotBlank
     @Column(name="fullness_level")
     private int fullnessLevel;
 
