@@ -41,4 +41,9 @@ public class PaddockController {
   public List<Paddock> findPaddocksWithDinosaursNamed(@PathVariable String name) {
     return paddockRepository.findPaddocksWithDinosaursNamed(name);
   }
+
+  @GetMapping(value="/herbivores")
+  public List<Paddock> findPaddocksByIsHerbivores() {
+    return paddockRepository.findPaddocksByIsHerbivore(true);
+  }
 }
