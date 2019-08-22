@@ -31,7 +31,16 @@ public class DinosaurController {
     }
 
     @GetMapping(value = "/feed")
-    public void findAllDinosaursAndUpdateFullnessLevel() {
+    public void findAllDinosaursAndIncreaseFullnessLevel() {
+        List<Dinosaur> dinosaurs = getAllDinosaurs();
+        for (Dinosaur dinosaur : dinosaurs) {
+            dinosaur.setFullnessLevel(100);
+            dinosaurRepository.save(dinosaur);
+        }
+    }
+
+    @GetMapping(value = "/hunger")
+    public void findAlllDinosaursAndDecreaseFullnessLevel() {
         List<Dinosaur> dinosaurs = getAllDinosaurs();
         for (Dinosaur dinosaur : dinosaurs) {
             dinosaur.setFullnessLevel(100);
