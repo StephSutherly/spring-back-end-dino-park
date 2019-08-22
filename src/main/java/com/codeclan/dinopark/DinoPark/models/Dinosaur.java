@@ -74,7 +74,7 @@ public abstract class Dinosaur {
     }
 
     public void decreaseFullnessLevel(int amount) {
-        
+        setFullnessLevel(getFullnessLevel() - amount);
     }
 
     public Paddock getPaddock() {

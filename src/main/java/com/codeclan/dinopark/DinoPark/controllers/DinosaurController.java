@@ -43,7 +43,7 @@ public class DinosaurController {
     public void findAlllDinosaursAndDecreaseFullnessLevel() {
         List<Dinosaur> dinosaurs = getAllDinosaurs();
         for (Dinosaur dinosaur : dinosaurs) {
-            dinosaur.setFullnessLevel(100);
+            dinosaur.decreaseFullnessLevel(10);
             dinosaurRepository.save(dinosaur);
         }
     }
