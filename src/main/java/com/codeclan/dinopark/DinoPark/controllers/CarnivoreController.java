@@ -25,20 +25,29 @@ public class CarnivoreController {
     carnivoreRepository.save(carnivore);
   }
 
-  @GetMapping(value="/{id}")
+  @GetMapping(value = "/{id}")
   public Optional<Carnivore> findCarnivore(@PathVariable Long id) {
     return carnivoreRepository.findById(id);
   }
 
-  @PutMapping(value="/{id}")
+  @PutMapping(value = "/{id}")
   public void updateCarnivore(@PathVariable Long id, @RequestBody Carnivore carnivore) {
     if(findCarnivore(id).get() != null) {
       carnivoreRepository.save(carnivore);
     }
   }
 
-  @DeleteMapping(value="/{id}")
+  @DeleteMapping(value = "/{id}")
   public void deleteCarnivore(@PathVariable Long id) {
     carnivoreRepository.delete(findCarnivore(id).get());
+  }
+
+  @GetMapping(value = "/hunger")
+  public void findAllCarnivoresAndDecreaseFullnessLevel() {
+    List<Carnivore> carnivores = getAllCarnivores();
+    for (Carnivore carnivore : carnivores) {
+      carnivore.decreaseFullnessLevel(20);
+      carnivoreRepository.save(carnivore);
+    }
   }
 }

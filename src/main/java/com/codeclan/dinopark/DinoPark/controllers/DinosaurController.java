@@ -20,7 +20,7 @@ public class DinosaurController {
         return dinosaurRepository.findAll();
     }
 
-    @GetMapping(value="/{id}")
+    @GetMapping(value = "/{id}")
     public Optional<Dinosaur> findDinosaur(@PathVariable Long id) {
         return dinosaurRepository.findById(id);
     }
@@ -48,7 +48,7 @@ public class DinosaurController {
         }
     }
 
-    @DeleteMapping(value="/{id}")
+    @DeleteMapping(value = "/{id}")
     public void deleteDinosaur(@PathVariable Long id) {
         dinosaurRepository.delete(findDinosaur(id).get());
     }
