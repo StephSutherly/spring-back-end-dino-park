@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value="/herbivores")
+@RequestMapping(value = "/herbivores")
 public class HerbivoreController {
 
   @Autowired
@@ -25,20 +25,29 @@ public class HerbivoreController {
     herbivoreRepository.save(herbivore);
   }
 
-  @GetMapping(value="/{id}")
+  @GetMapping(value = "/{id}")
   public Optional<Herbivore> findHerbivore(@PathVariable Long id) {
     return herbivoreRepository.findById(id);
   }
 
-  @PutMapping(value="/{id}")
+  @PutMapping(value = "/{id}")
   public void updateHerbivore(@PathVariable Long id, @RequestBody Herbivore herbivore) {
     if(findHerbivore(id).get() != null) {
       herbivoreRepository.save(herbivore);
     }
   }
 
-  @DeleteMapping(value="/{id}")
+  @DeleteMapping(value = "/{id}")
   public void deleteHerbivore(@PathVariable Long id) {
     herbivoreRepository.delete(findHerbivore(id).get());
+  }
+
+  @GetMapping(value = "/hunger")
+  public void findAllCarnivoresAndDecreaseFullnessLevel() {
+    List<Herbivore> herbivores = getAllHerbivores();
+    for (Herbivore herbivore : herbivores) {
+      herbivore.decreaseFullnessLevel(10);
+      herbivoreRepository.save(herbivore);
+    }
   }
 }

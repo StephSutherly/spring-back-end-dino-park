@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/carnivores")
+@RequestMapping(value = "/carnivores")
 public class CarnivoreController {
 
   @Autowired

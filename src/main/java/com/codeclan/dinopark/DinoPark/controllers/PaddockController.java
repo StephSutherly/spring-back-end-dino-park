@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value="/paddocks")
+@RequestMapping(value = "/paddocks")
 public class PaddockController {
 
   @Autowired
@@ -25,29 +25,29 @@ public class PaddockController {
     paddockRepository.save(paddock);
   }
 
-  @GetMapping(value="/{id}")
+  @GetMapping(value = "/{id}")
   public Optional<Paddock> findPaddock(@PathVariable Long id) {
     return paddockRepository.findById(id);
   }
 
-  @PutMapping(value="/{id}")
+  @PutMapping(value = "/{id}")
   public void updatePaddock(@PathVariable Long id, @RequestBody Paddock paddock) {
     if(findPaddock(id).get() != null) {
       paddockRepository.save(paddock);
     }
   }
 
-  @GetMapping(value="/dinosaurs/named/{name}")
+  @GetMapping(value = "/dinosaurs/named/{name}")
   public List<Paddock> findPaddocksWithDinosaursNamed(@PathVariable String name) {
     return paddockRepository.findPaddocksWithDinosaursNamed(name);
   }
 
-  @GetMapping(value="/herbivores")
+  @GetMapping(value = "/herbivores")
   public List<Paddock> findPaddocksByIsHerbivoresTrue() {
     return paddockRepository.findPaddocksByIsHerbivore(true);
   }
 
-  @GetMapping(value="/carnivores")
+  @GetMapping(value = "/carnivores")
   public List<Paddock> findPaddocksByIsHerbivoresFalse() {
     return paddockRepository.findPaddocksByIsHerbivore(false);
   }
